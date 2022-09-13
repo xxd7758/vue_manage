@@ -41,6 +41,11 @@ export default [
         name: 'Categories',
         component: () => import('@/views/goods/Categories.vue'),
       },
+      {
+        path: '/goods/add',
+        name: 'Add',
+        component: () => import('@/views/goods/Add.vue'),
+      },
     ],
   },
   { path: '/login', name: 'Login', component: () => import('@/views/Login') },

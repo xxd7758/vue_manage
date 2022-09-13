@@ -276,12 +276,12 @@ export default {
           params: { sel: this.activeName },
         }
       );
-      console.log(res);
+      // console.log(res);
       if (res.meta.status != 200)
         return this.$message.error("获取参数列表失败");
       res.data.forEach((item) => {
-        console.log(item);
-        //tips 初始化为空对象 否则 添加第一项时前面多一项空格标签 
+        // console.log(item);
+        //tips 初始化为空对象 否则 添加第一项时前面多一项空格标签
         item.attr_vals = !item.attr_vals ? [] : item.attr_vals.split(" ");
         console.log(item.attr_vals);
         item.inputVisible = false; // 每个数据 单独控制
