@@ -51,6 +51,11 @@ export default [
         name: 'Orders',
         component: () => import('@/views/Orders'),
       },
+      {
+        path: '/reports',
+        name: 'Reports',
+        component: () => import('@/views/Reports'),
+      },
     ],
   },
   { path: '/login', name: 'Login', component: () => import('@/views/Login') },
