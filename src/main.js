@@ -13,6 +13,9 @@ import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 import 'quill/dist/quill.bubble.css';
 Vue.use(VueQuillEditor);
+// 进度条
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 // 导入全局样式
 import '@/assets/css/global.css';
 import '@/assets/fonts/iconfont.css';
@@ -22,10 +25,14 @@ Vue.prototype.$http = axios;
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/';
 // 请求拦截器
 axios.interceptors.request.use((config) => {
+  NProgress.start();
   config.headers.Authorization = window.sessionStorage.getItem('token');
   return config;
 });
-
+axios.interceptors.response.use((config) => {
+  NProgress.done();
+  return config;
+});
 // 时间 格式转化 过滤器
 Vue.filter('dataFormat', function (originVal) {
   const dt = new Date(originVal * 1000);
